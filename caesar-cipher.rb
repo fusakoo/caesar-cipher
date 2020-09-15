@@ -1,11 +1,24 @@
 def caesar_cipher(string, shift)
-  #if (shift < 0)
-  #  return caesar_cipher(string, shift + 26)
-  #end
+  alphabet = ('a'..'z').to_a
+  alphabet_caps = ('A'..'Z').to_a
+  output = []
+  string.chars.each do |character|
+    if alphabet.include?(character)
+      shifted = character.ord + shift
+      shifted_character = shifted.chr
+      
+      output << shifted_character
+    elsif alphabet_caps.include?(character)  
+      shifted = character.ord + shift
+      shifted_character = shifted.chr
+      
+      output << shifted_character
+    else
+      output << character
+    end
+  end
 
-  cipher_ascii = string.chars.map { |character| character.ord }
-  shifted_ascii = cipher_ascii.map { |character| character + shift}
-  shifted_ascii.map { |character| character.chr }.join
+  output.join
 end
 
-p caesar_cipher("Hello world", 5)
+p caesar_cipher("Test!", 5)
