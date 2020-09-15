@@ -9,11 +9,9 @@ def caesar_cipher(string, shift)
 
       if (index + shift) >= alphabet.length
         shifted_character = (character.ord + shift - 26).chr
-        
         output << shifted_character
       else
         shifted_character = (character.ord + shift).chr
-        
         output << shifted_character
       end  
     elsif alphabet_caps.include?(character)
@@ -21,11 +19,9 @@ def caesar_cipher(string, shift)
 
       if (index + shift) >= alphabet.length
         shifted_character = (character.ord + shift - 26).chr
-        
         output << shifted_character
       else  
         shifted_character = (character.ord + shift).chr
-        
         output << shifted_character
       end
     else
